@@ -37,6 +37,10 @@ The easiest way to deploy your Next.js app is to use the [Vercel Platform](https
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
 
+## プロジェクトのインストール
+①新規フォルダを作成
+②cd フォルダのパス
+③ git clone https://github.com/anagonama704/kirumo-app.git
 
 ## GitHubの手順書
 -- https://drive.google.com/file/d/1pcuSHQzgzPjonsGWHxQkJxPo1Yu259mI/view?usp=sharing
