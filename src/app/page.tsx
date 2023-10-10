@@ -1,7 +1,10 @@
-export default function Home() {
+"use client";
+
+const Home = () => {
   return (
     <>
       <p>トップ</p>
     </>
   );
-}
+};
+export default Home;
