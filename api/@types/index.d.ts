@@ -3,3 +3,10 @@ export type test = {
   name: string;
   age: number;
 };
+export type clotherList = {
+  id: number;
+  name: string;
+  des: string;
+  src: string;
+  stock: boolean;
+};
