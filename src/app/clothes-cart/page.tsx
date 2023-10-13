@@ -1,10 +1,11 @@
 "use client";
 
+import { Container, Text } from "@mantine/core";
 const ClothesCart = () => {
   return (
-    <>
-      <h1>新規登録</h1>
-    </>
+    <Container>
+      <Text>商品カート</Text>
+    </Container>
   );
 };
 export default ClothesCart;
