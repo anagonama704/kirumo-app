@@ -1,11 +1,12 @@
 "use client";
 
 import { Container, Text } from "@mantine/core";
-const Home = () => {
+const StaffPage = () => {
   return (
     <Container>
-      <Text>トップページ</Text>
+      <Text>店員ページ</Text>
     </Container>
   );
 };
-export default Home;
+
+export default StaffPage;
