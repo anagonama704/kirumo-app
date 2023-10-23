@@ -9,4 +9,5 @@ export type clotherList = {
   des: string;
   src: string;
   stock: boolean;
+  sort: string;
 };
