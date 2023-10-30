@@ -298,3 +298,37 @@ export const clotheList = [
     sort: "シューズ",
   },
 ];
+import jacket from "public/images/daunjake.png";
+import huku from "public/images/Tsyatu.png";
+import zipan from "public/images/zipan.png";
+import kutu from "public/images/kutu.png";
+export const testCart = [
+  {
+    id: 1,
+    name: "ダウンジャケット",
+    size: "L",
+    color: "ブルー",
+    src: jacket.src,
+  },
+  {
+    id: 2,
+    name: "シンプル T シャツ",
+    size: "M",
+    color: "ホワイト",
+    src: huku.src,
+  },
+  {
+    id: 3,
+    name: "ジーンズパンツ",
+    size: "L",
+    color: "ブルー",
+    src: zipan.src,
+  },
+  {
+    id: 4,
+    name: "ブラウンシューズ",
+    size: "28.0cm",
+    color: "ブラウン",
+    src: kutu.src,
+  },
+];
