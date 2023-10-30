@@ -11,7 +11,6 @@ import {
   BackgroundImage,
 } from "@mantine/core";
 import topimg4 from "/public/images/topimg4.png";
-import { relative } from "path";
 const Home = () => {
   return (
     <Container fluid m={0} p={0}>
