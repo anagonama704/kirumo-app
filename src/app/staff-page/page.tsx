@@ -8,13 +8,10 @@ import {
   Center,
   Flex,
   Stack,
-  Popover,
   Card,
   Group,
-  Badge,
   Image,
 } from "@mantine/core";
-import { Notification } from "@mantine/core";
 const StaffPage = () => {
   const list = [{ id: 1 }, { id: 2 }, { id: 3 }, { id: 4 }];
   return (
