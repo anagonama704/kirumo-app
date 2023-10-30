@@ -2,13 +2,9 @@
 
 import {
   Box,
-  Button,
-  Center,
   Container,
   Flex,
   Text,
-  Image,
-  BackgroundImage,
 } from "@mantine/core";
 import topimg4 from "/public/images/topimg4.png";
 const Home = () => {
