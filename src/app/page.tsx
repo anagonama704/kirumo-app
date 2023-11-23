@@ -1,13 +1,21 @@
 "use client";
 
-import {
-  Box,
-  Container,
-  Flex,
-  Text,
-} from "@mantine/core";
+import { Box, Container, Flex, Text } from "@mantine/core";
 import topimg4 from "/public/images/topimg4.png";
+import { useRouter } from "next/navigation";
+import { useEffect } from "react";
+//テスト：ページ遷移(5s)
 const Home = () => {
+  const router = useRouter();
+  const changePage = () => {
+    router.push("./clothes-list/");
+  };
+
+  useEffect(() => {
+    setTimeout(() => {
+      changePage();
+    }, 5000);
+  });
   return (
     <Container fluid m={0} p={0}>
       <Box

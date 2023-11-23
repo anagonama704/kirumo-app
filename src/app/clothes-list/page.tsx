@@ -8,29 +8,33 @@ import {
   Input,
   TextInput,
   NativeSelect,
+  ActionIcon,
+  Modal,
 } from "@mantine/core";
 import {
   Hoodie,
   MagnifyingGlass,
   Pants,
+  ShoppingCart,
   Sneaker,
   TShirt,
   ThumbsUp,
 } from "@phosphor-icons/react";
 import classes from "../Demo.module.css";
 import { clotheList, recommend } from "@/mock/mockdata";
-import List from "@/components/ClothesList";
 import { useEffect, useState } from "react";
 import { clotherList } from "../../../api/@types";
 import Recommend from "@/components/Recommend";
 import RecsList from "@/components/RecsList";
+import { useDisclosure } from "@mantine/hooks";
+import CartList from "@/components/CartList";
 
 const ClothesList = () => {
   const [val, setVal] = useState("おすすめ");
   const [sort, setSort] = useState<clotherList[]>(recommend);
   const searchIcon = <MagnifyingGlass size={20} />;
   const [tabListData, setTabListData] = useState<clotherList[]>(clotheList);
-
+  const [opened, { open, close }] = useDisclosure(false);
   const [di, setdd] = useState<boolean>(true);
   const [listDis, setListDis] = useState<boolean>(false);
   const tabChangeData = (e: string | null) => {
@@ -72,7 +76,7 @@ const ClothesList = () => {
         variant="unstyled"
         value={val}
         classNames={classes}
-        style={{ zIndex: 100000, backgroundColor: "#fff" }}
+        style={{ zIndex: 100, backgroundColor: "#fff" }}
         onChange={tabChangeData}
         ml={200}
       >
@@ -96,10 +100,10 @@ const ClothesList = () => {
       </Tabs>
       <Flex>
         <Box
-          w={225}
-          h={"85vh"}
-          top={53}
           pos="sticky"
+          w={225}
+          h={"80vh"}
+          top={53}
           p={10}
           style={{ backgroundColor: "#ddd" }}
         >
@@ -119,6 +123,13 @@ const ClothesList = () => {
               data={["1000円〜2000円", "2000円〜5000円", "5000円以上"]}
             />
             <NativeSelect
+              label="在庫状況"
+              radius={20}
+              w={180}
+              mb={20}
+              data={["指定しない", "在庫あり", "在庫なし"]}
+            />
+            <NativeSelect
               label="サイズ"
               radius={20}
               w={180}
@@ -135,6 +146,28 @@ const ClothesList = () => {
           )}
         </Box>
       </Flex>
+      <ActionIcon
+        pos="sticky"
+        w={80}
+        h={80}
+        left={"85%"}
+        bottom={30}
+        radius={90}
+        onClick={open}
+      >
+        <ShoppingCart size={30} />
+      </ActionIcon>
+      <Modal
+        size={"auto"}
+        opened={opened}
+        onClose={close}
+        withCloseButton={false}
+        centered
+        p={0}
+      >
+        {/* Modal content */}
+        <CartList />
+      </Modal>
     </Container>
   );
 };

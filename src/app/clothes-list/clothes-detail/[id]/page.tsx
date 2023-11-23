@@ -13,6 +13,7 @@ import {
   Image,
   List,
   ActionIcon,
+  LoadingOverlay,
 } from "@mantine/core";
 import { CaretLeft, CaretRight, ShoppingCart } from "@phosphor-icons/react";
 import { Carousel } from "@mantine/carousel";
@@ -25,6 +26,7 @@ const ClothesDetail = () => {
   const [nowSlide, setNowSlide] = useState(0);
   const [fembla, setFemble] = useState<EmblaCarouselType>();
   const [eembla, setEemble] = useState<EmblaCarouselType>();
+  const [recs, setRecs] = useState(true);
 
   const detail = {
     margin: "0 0 5px 0",
@@ -101,145 +103,162 @@ const ClothesDetail = () => {
     slideCenters(nowSlide);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [nowSlide]);
+  useEffect(() => {
+    setTimeout(() => {
+      setRecs(false);
+    }, 1000);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <Container fluid>
-      <ActionIcon
-        pos="absolute"
-        top={30}
-        left={30}
-        w={90}
-        h={35}
-        component={Link}
-        href="/clothes-list"
-        variant="white"
-        radius="50px"
-        bg=""
-      >
-        <CaretLeft size={40} />
-        <Text fz={20}>戻る</Text>
-      </ActionIcon>
-      <Flex w="90%" m="75px auto 0 auto" justify="space-around" align="center">
-        <Stack w="40%" gap="sm" align="center">
-          <Carousel
-            withControls={false}
-            loop
-            w="100%"
-            slideGap="xs"
-            getEmblaApi={setFemble}
-            initialSlide={0}
-            slidesToScroll={1}
-            align="center"
-            onSlideChange={(e) => {
-              setNowSlide(e);
-            }}
+      {recs ? (
+        <LoadingOverlay visible zIndex={10000000} />
+      ) : (
+        <>
+          <ActionIcon
+            pos="absolute"
+            top={30}
+            left={30}
+            w={90}
+            h={35}
+            component={Link}
+            href="/clothes-list"
+            variant="white"
+            radius="50px"
+            bg=""
           >
-            {Images.map((image) => (
-              <Carousel.Slide key={image.id} id={image.id + ""}>
-                <Image src={image.src} alt="" style={{ zIndex: 100 }} />
-              </Carousel.Slide>
-            ))}
-          </Carousel>
-          <Carousel
-            h={"auto"}
-            slideSize="33.333333%"
-            slideGap="md"
-            loop
-            w="100%"
+            <CaretLeft size={40} />
+            <Text fz={20}>戻る</Text>
+          </ActionIcon>
+          <Flex
+            w="90%"
+            m="75px auto 0 auto"
+            justify="space-around"
             align="center"
-            initialSlide={0}
-            slidesToScroll={1}
-            withControls={false}
-            getEmblaApi={setEemble}
-            onSlideChange={(e) => {
-              setNowSlide(e);
-            }}
           >
-            {Images.map((image) => (
-              <Carousel.Slide
-                key={image.id}
-                id={image.id + ""}
-                onClick={(e) => {
-                  setNowSlide(Number(e.currentTarget.id) - 1);
+            <Stack w="40%" gap="sm" align="center">
+              <Carousel
+                withControls={false}
+                loop
+                w="100%"
+                slideGap="xs"
+                getEmblaApi={setFemble}
+                initialSlide={0}
+                slidesToScroll={1}
+                align="center"
+                onSlideChange={(e) => {
+                  setNowSlide(e);
                 }}
               >
-                <Image src={image.src} alt="" />
-              </Carousel.Slide>
-            ))}
-          </Carousel>
+                {Images.map((image) => (
+                  <Carousel.Slide key={image.id} id={image.id + ""}>
+                    <Image src={image.src} alt="" style={{ zIndex: 100 }} />
+                  </Carousel.Slide>
+                ))}
+              </Carousel>
+              <Carousel
+                h={"auto"}
+                slideSize="33.333333%"
+                slideGap="md"
+                loop
+                w="100%"
+                align="center"
+                initialSlide={0}
+                slidesToScroll={1}
+                withControls={false}
+                getEmblaApi={setEemble}
+                onSlideChange={(e) => {
+                  setNowSlide(e);
+                }}
+              >
+                {Images.map((image) => (
+                  <Carousel.Slide
+                    key={image.id}
+                    id={image.id + ""}
+                    onClick={(e) => {
+                      setNowSlide(Number(e.currentTarget.id) - 1);
+                    }}
+                  >
+                    <Image src={image.src} alt="" />
+                  </Carousel.Slide>
+                ))}
+              </Carousel>
 
-          <ActionIcon
-            w={50}
-            variant="transparent"
-            pos="relative"
-            bottom={70}
-            right={230}
-            onClick={() => {
-              eembla?.scrollPrev();
-            }}
-          >
-            <CaretLeft size={90} />
-          </ActionIcon>
-          <ActionIcon
-            w={50}
-            variant="transparent"
-            pos="relative"
-            bottom={110}
-            left={230}
-            onClick={() => {
-              eembla?.scrollNext();
-            }}
-          >
-            <CaretRight size={90} />
-          </ActionIcon>
-        </Stack>
+              <ActionIcon
+                w={50}
+                variant="transparent"
+                pos="relative"
+                bottom={70}
+                right={230}
+                onClick={() => {
+                  eembla?.scrollPrev();
+                }}
+              >
+                <CaretLeft size={90} />
+              </ActionIcon>
+              <ActionIcon
+                w={50}
+                variant="transparent"
+                pos="relative"
+                bottom={110}
+                left={230}
+                onClick={() => {
+                  eembla?.scrollNext();
+                }}
+              >
+                <CaretRight size={90} />
+              </ActionIcon>
+            </Stack>
 
-        {/* 商品詳細 */}
-        <Stack gap="sm" w="30%" justify="flex-start">
-          <Text style={detail} fz="20px">
-            黒Tシャツ
-          </Text>
-          <Flex style={detail} align="flex-end">
-            <Text>¥1,000</Text>
-            <Text pl="2px" pb="1px" size="xs">
-              (税込み)
-            </Text>
+            {/* 商品詳細 */}
+            <Stack gap="sm" w="30%" justify="flex-start">
+              <Text style={detail} fz="20px">
+                黒Tシャツ
+              </Text>
+              <Flex style={detail} align="flex-end">
+                <Text>¥1,000</Text>
+                <Text pl="2px" pb="1px" size="xs">
+                  (税込み)
+                </Text>
+              </Flex>
+              <Text style={detail}>使用している素材</Text>
+              <List pl="10px">
+                <List.Item>ウール</List.Item>
+              </List>
+              <Text>サイズ</Text>
+              <SegmentedControl w={200} data={["S", "M", "L"]} />
+              <Text>カラー</Text>
+              <SegmentedControl
+                w={200}
+                data={selectData}
+                value={segV}
+                onChange={setSegV}
+              />
+
+              {/* ドロップダウンメニュー */}
+              <NativeSelect
+                mt="md"
+                label="個数"
+                placeholder="数量"
+                data={["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"]}
+                style={{ maxWidth: "30%" }}
+              />
+              {/* カートに入れる */}
+              <Button
+                variant="filled"
+                color="red"
+                w="80%"
+                p={10}
+                fz={"16px"}
+                leftSection={<ShoppingCart size={25} />}
+              >
+                試着リストに入れる
+              </Button>
+            </Stack>
           </Flex>
-          <Text style={detail}>使用している素材</Text>
-          <List pl="10px">
-            <List.Item>ウール</List.Item>
-          </List>
-          <Text>サイズ</Text>
-          <SegmentedControl w={200} data={["S", "M", "L"]} />
-          <Text>カラー</Text>
-          <SegmentedControl
-            w={200}
-            data={selectData}
-            value={segV}
-            onChange={setSegV}
-          />
-
-          {/* ドロップダウンメニュー */}
-          <NativeSelect
-            mt="md"
-            label="個数"
-            placeholder="数量"
-            data={["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"]}
-            style={{ maxWidth: "30%" }}
-          />
-          {/* カートに入れる */}
-          <Button
-            variant="filled"
-            color="red"
-            w="80%"
-            p={10}
-            fz={"16px"}
-            leftSection={<ShoppingCart size={25} />}
-          >
-            試着リストに入れる
-          </Button>
-        </Stack>
-      </Flex>
+        </>
+      )}
     </Container>
   );
 };

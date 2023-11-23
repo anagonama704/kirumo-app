@@ -13,9 +13,9 @@ import {
 
 import { testCart } from "@/mock/mockdata";
 
-const ClothesCart = () => {
+const CartList = () => {
   return (
-    <Container h={"100vh"}>
+    <Container fluid mt={"-30px"}>
       <Flex
         mih={100}
         miw={700}
@@ -31,13 +31,13 @@ const ClothesCart = () => {
         </Text>
       </Flex>
 
-      <Stack h={"75vh"} miw={900} justify="center" mb={30}>
+      <Stack h={"75vh"} miw={900} justify="center">
         {testCart.map((cart) => (
           <Group
             key={cart.id}
             grow
             w={600}
-            h={120}
+            h={110}
             style={{ margin: "0 auto" }}
           >
             <Box
@@ -64,14 +64,14 @@ const ClothesCart = () => {
         ))}
       </Stack>
 
-      <Button radius={20} pos="absolute" bottom={90} right={130}>
+      <Button radius={20} pos="absolute" bottom={"5%"} right={"5%"}>
         試着する
       </Button>
-      <Button radius={20} color="red" pos="absolute" top={40} right={30}>
+      <Button radius={20} color="red" pos="absolute" top={"10%"} right={30}>
         店員を呼ぶ
       </Button>
     </Container>
   );
 };
 
-export default ClothesCart;
+export default CartList;
