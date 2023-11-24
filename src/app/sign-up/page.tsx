@@ -59,7 +59,7 @@ const SignUp = () => {
       fluid
       h="100svh"
       style={{
-        backgroundColor: "#FFFAF0",
+        backgroundColor: "#ffffff",
       }}
     >
       <Text ta="center" pt={"50px"} fw="bold">
