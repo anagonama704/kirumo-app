@@ -10,6 +10,7 @@ import {
   Button,
 } from "@mantine/core";
 import Link from "next/link";
+import { useEffect, useState } from "react";
 
 const gender = ["男性", "女性", "無選択"];
 
@@ -22,6 +23,19 @@ const color = ["赤系", "青系", "緑系", "白系", "黒系"];
 const data2 = color.map((output) => {
   return `${output}`;
 });
+
+const category1 = [
+  "カジュアル系(メンズ)",
+  "きれいめ系(メンズ)",
+  "アメカジ系",
+  "アウトドア系",
+];
+const category2 = [
+  "カジュアル系(ウィメンズ)",
+  "きれいめ系(ウィメンズ)",
+  "コンサバ系",
+  "フェミニン系",
+];
 
 const size = ["S", "M", "L"];
 
@@ -54,6 +68,22 @@ const data4 = shoe.map((output) => {
 });
 
 const SignUp = () => {
+  const [genders, setGenders] = useState("");
+  const [select_gender, setSelect_gender] = useState(category1);
+
+  useEffect(() => {
+    console.log(genders);
+    if (genders === "男性") {
+      setSelect_gender(category1);
+      console.log("men");
+    } else if (genders === "女性") {
+      setSelect_gender(category2);
+      console.log("women");
+    } else {
+      setSelect_gender(category1.concat(category2));
+      console.log("none");
+    }
+  }, [genders]);
   return (
     <Container
       fluid
@@ -74,15 +104,25 @@ const SignUp = () => {
           maxDropdownHeight={200}
           w={500}
           mt={"50px"}
+          onChange={(e) => setGenders(e ? e : "")}
         />
 
-        <MultiSelect
+        <Select
           label="好きな色を選択してください"
           placeholder="好きな色を選択してください"
           data={data2}
           w={500}
           mt={"50px"}
           maxDropdownHeight={200}
+        />
+
+        <Select
+          label="服のカテゴリーを選択してください"
+          placeholder="服のカテゴリーを選択してください"
+          data={select_gender}
+          w={500}
+          mt={"50px"}
+          styles={{ dropdown: { maxHeight: 200, overflowY: "auto" } }}
         />
 
         <Select
