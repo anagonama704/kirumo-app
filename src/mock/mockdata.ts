@@ -1,19 +1,12 @@
 export const recommend = [
   {
-    id: 0,
-    name: "おすすめ商品１",
-    des: "商品説明あああああああああああああああ",
-    src: "https://placehold.jp/640x480.png",
-    stock: true,
-    sort: "アウター",
-  },
-  {
     id: 1,
     name: "おすすめ商品２",
     des: "商品説明あああああああああああああああ",
     src: "https://placehold.jp/640x480.png",
     stock: false,
     sort: "トップス",
+    price: 3000,
   },
   {
     id: 2,
@@ -22,6 +15,7 @@ export const recommend = [
     src: "https://placehold.jp/640x480.png",
     stock: true,
     sort: "ボトムス",
+    price: 3000,
   },
   {
     id: 3,
@@ -30,6 +24,7 @@ export const recommend = [
     src: "https://placehold.jp/640x480.png",
     stock: false,
     sort: "シューズ",
+    price: 3000,
   },
   {
     id: 4,
@@ -38,6 +33,7 @@ export const recommend = [
     src: "https://placehold.jp/640x480.png",
     stock: true,
     sort: "アウター",
+    price: 3000,
   },
   {
     id: 5,
@@ -46,6 +42,7 @@ export const recommend = [
     src: "https://placehold.jp/640x480.png",
     stock: false,
     sort: "トップス",
+    price: 3000,
   },
   {
     id: 6,
@@ -54,6 +51,7 @@ export const recommend = [
     src: "https://placehold.jp/640x480.png",
     stock: true,
     sort: "ボトムス",
+    price: 3000,
   },
   {
     id: 7,
@@ -62,6 +60,7 @@ export const recommend = [
     src: "https://placehold.jp/640x480.png",
     stock: false,
     sort: "シューズ",
+    price: 3000,
   },
   {
     id: 8,
@@ -70,6 +69,7 @@ export const recommend = [
     src: "https://placehold.jp/640x480.png",
     stock: false,
     sort: "アウター",
+    price: 3000,
   },
   {
     id: 9,
@@ -78,6 +78,7 @@ export const recommend = [
     src: "https://placehold.jp/640x480.png",
     stock: true,
     sort: "トップス",
+    price: 3000,
   },
   {
     id: 10,
@@ -86,6 +87,7 @@ export const recommend = [
     src: "https://placehold.jp/640x480.png",
     stock: true,
     sort: "ボトムス",
+    price: 3000,
   },
   {
     id: 11,
@@ -94,6 +96,7 @@ export const recommend = [
     src: "https://placehold.jp/640x480.png",
     stock: true,
     sort: "シューズ",
+    price: 3000,
   },
   {
     id: 12,
@@ -102,6 +105,7 @@ export const recommend = [
     src: "https://placehold.jp/640x480.png",
     stock: true,
     sort: "アウター",
+    price: 3000,
   },
   {
     id: 13,
@@ -110,6 +114,7 @@ export const recommend = [
     src: "https://placehold.jp/640x480.png",
     stock: false,
     sort: "トップス",
+    price: 3000,
   },
   {
     id: 14,
@@ -118,6 +123,7 @@ export const recommend = [
     src: "https://placehold.jp/640x480.png",
     stock: false,
     sort: "ボトムス",
+    price: 3000,
   },
   {
     id: 15,
@@ -126,17 +132,19 @@ export const recommend = [
     src: "https://placehold.jp/640x480.png",
     stock: false,
     sort: "シューズ",
+    price: 3000,
   },
-];
-export const clotheList = [
   {
-    id: 0,
-    name: "商品１",
+    id: 16,
+    name: "おすすめ商品16",
     des: "商品説明あああああああああああああああ",
     src: "https://placehold.jp/640x480.png",
     stock: true,
     sort: "アウター",
+    price: 3000,
   },
+];
+export const clotheList = [
   {
     id: 1,
     name: "商品２",
@@ -144,6 +152,7 @@ export const clotheList = [
     src: "https://placehold.jp/640x480.png",
     stock: false,
     sort: "トップス",
+    price: 3000,
   },
   {
     id: 2,
@@ -152,6 +161,7 @@ export const clotheList = [
     src: "https://placehold.jp/640x480.png",
     stock: false,
     sort: "ボトムス",
+    price: 3000,
   },
   {
     id: 3,
@@ -160,6 +170,7 @@ export const clotheList = [
     src: "https://placehold.jp/640x480.png",
     stock: true,
     sort: "シューズ",
+    price: 3000,
   },
   {
     id: 4,
@@ -168,6 +179,7 @@ export const clotheList = [
     src: "https://placehold.jp/640x480.png",
     stock: true,
     sort: "アウター",
+    price: 3000,
   },
   {
     id: 5,
@@ -176,6 +188,7 @@ export const clotheList = [
     src: "https://placehold.jp/640x480.png",
     stock: false,
     sort: "トップス",
+    price: 3000,
   },
   {
     id: 6,
@@ -184,6 +197,7 @@ export const clotheList = [
     src: "https://placehold.jp/640x480.png",
     stock: true,
     sort: "ボトムス",
+    price: 3000,
   },
   {
     id: 7,
@@ -192,6 +206,7 @@ export const clotheList = [
     src: "https://placehold.jp/640x480.png",
     stock: true,
     sort: "シューズ",
+    price: 3000,
   },
   {
     id: 8,
@@ -200,6 +215,7 @@ export const clotheList = [
     src: "https://placehold.jp/640x480.png",
     stock: false,
     sort: "アウター",
+    price: 3000,
   },
   {
     id: 9,
@@ -208,6 +224,7 @@ export const clotheList = [
     src: "https://placehold.jp/640x480.png",
     stock: true,
     sort: "トップス",
+    price: 3000,
   },
   {
     id: 10,
@@ -216,6 +233,7 @@ export const clotheList = [
     src: "https://placehold.jp/640x480.png",
     stock: true,
     sort: "シューズ",
+    price: 3000,
   },
   {
     id: 11,
@@ -224,6 +242,7 @@ export const clotheList = [
     src: "https://placehold.jp/640x480.png",
     stock: false,
     sort: "トップス",
+    price: 3000,
   },
   {
     id: 12,
@@ -232,6 +251,7 @@ export const clotheList = [
     src: "https://placehold.jp/640x480.png",
     stock: false,
     sort: "ボトムス",
+    price: 3000,
   },
   {
     id: 13,
@@ -240,6 +260,7 @@ export const clotheList = [
     src: "https://placehold.jp/640x480.png",
     stock: true,
     sort: "シューズ",
+    price: 3000,
   },
   {
     id: 14,
@@ -248,6 +269,7 @@ export const clotheList = [
     src: "https://placehold.jp/640x480.png",
     stock: true,
     sort: "アウター",
+    price: 3000,
   },
   {
     id: 15,
@@ -256,6 +278,7 @@ export const clotheList = [
     src: "https://placehold.jp/640x480.png",
     stock: false,
     sort: "トップス",
+    price: 3000,
   },
   {
     id: 16,
@@ -264,6 +287,7 @@ export const clotheList = [
     src: "https://placehold.jp/640x480.png",
     stock: true,
     sort: "ボトムス",
+    price: 3000,
   },
   {
     id: 17,
@@ -272,6 +296,7 @@ export const clotheList = [
     src: "https://placehold.jp/640x480.png",
     stock: true,
     sort: "シューズ",
+    price: 3000,
   },
   {
     id: 18,
@@ -280,6 +305,7 @@ export const clotheList = [
     src: "https://placehold.jp/640x480.png",
     stock: false,
     sort: "アウター",
+    price: 3000,
   },
   {
     id: 19,
@@ -288,6 +314,7 @@ export const clotheList = [
     src: "https://placehold.jp/640x480.png",
     stock: true,
     sort: "トップス",
+    price: 3000,
   },
   {
     id: 20,
@@ -296,8 +323,19 @@ export const clotheList = [
     src: "https://placehold.jp/640x480.png",
     stock: true,
     sort: "シューズ",
+    price: 3000,
   },
 ];
+
+export const defaultCart = {
+  id: 0,
+  name: "",
+  des: "",
+  src: "",
+  stock: true,
+  sort: "",
+  price: 0,
+};
 import jacket from "public/images/daunjake.png";
 import huku from "public/images/Tsyatu.png";
 import zipan from "public/images/zipan.png";
@@ -309,6 +347,7 @@ export const testCart = [
     size: "L",
     color: "ブルー",
     src: jacket.src,
+    price: 3000,
   },
   {
     id: 2,
@@ -316,6 +355,7 @@ export const testCart = [
     size: "M",
     color: "ホワイト",
     src: huku.src,
+    price: 3000,
   },
   {
     id: 3,
@@ -323,6 +363,7 @@ export const testCart = [
     size: "L",
     color: "ブルー",
     src: zipan.src,
+    price: 3000,
   },
   {
     id: 4,
@@ -330,5 +371,6 @@ export const testCart = [
     size: "28.0cm",
     color: "ブラウン",
     src: kutu.src,
+    price: 3000,
   },
 ];
