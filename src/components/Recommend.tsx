@@ -15,7 +15,6 @@ import {
 } from "@mantine/core";
 import Link from "next/link";
 import { clotherList } from "../../api/@types";
-import { useEffect, useState } from "react";
 import List from "./ClothesList";
 
 const Recommend = ({
@@ -27,8 +26,6 @@ const Recommend = ({
   recommend: clotherList[];
   tys: boolean;
 }) => {
-  const [ty, setty] = useState(false);
-
   return (
     <Container>
       {!tys ? (
@@ -55,7 +52,7 @@ const Recommend = ({
                 return (
                   <Card
                     component={Link}
-                    href={"/clothes-list/clothes-detail/1" + recs.id}
+                    href={"/clothes-list/clothes-detail/" + recs.id}
                     key={recs.id}
                     shadow="sm"
                     padding="lg"
@@ -72,7 +69,9 @@ const Recommend = ({
                         {recs.stock ? "在庫あり" : "在庫なし"}
                       </Badge>
                     </Group>
-                    <Text size="12px">{recs.des}</Text>
+                    <Text ta="end" size="12px">
+                      価格：￥{recs.price}
+                    </Text>
                   </Card>
                 );
               })}
