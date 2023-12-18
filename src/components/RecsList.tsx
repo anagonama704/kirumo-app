@@ -85,7 +85,7 @@ const RecsList = ({ recommend }: { recommend: clotherList[] }) => {
                   return (
                     <Card
                       component={Link}
-                      href={"/clothes-list/clothes-detail/1" + recs.id}
+                      href={"/clothes-list/clothes-detail/" + recs.id}
                       key={recs.id}
                       shadow="sm"
                       padding="lg"
@@ -107,7 +107,9 @@ const RecsList = ({ recommend }: { recommend: clotherList[] }) => {
                           {recs.stock ? "在庫あり" : "在庫なし"}
                         </Badge>
                       </Group>
-                      <Text size="12px">{recs.des}</Text>
+                      <Text ta="end" size="12px">
+                        価格：￥{recs.price}
+                      </Text>
                     </Card>
                   );
                 })}
@@ -135,7 +137,7 @@ const RecsList = ({ recommend }: { recommend: clotherList[] }) => {
                   return (
                     <Card
                       component={Link}
-                      href={"/clothes-list/clothes-detail/1" + recs.id}
+                      href={"/clothes-list/clothes-detail/" + recs.id}
                       key={recs.id}
                       shadow="sm"
                       padding="lg"
@@ -157,7 +159,9 @@ const RecsList = ({ recommend }: { recommend: clotherList[] }) => {
                           {recs.stock ? "在庫あり" : "在庫なし"}
                         </Badge>
                       </Group>
-                      <Text size="12px">{recs.des}</Text>
+                      <Text ta="end" size="12px">
+                        価格：￥{recs.price}
+                      </Text>
                     </Card>
                   );
                 })}
@@ -185,7 +189,7 @@ const RecsList = ({ recommend }: { recommend: clotherList[] }) => {
                   return (
                     <Card
                       component={Link}
-                      href={"/clothes-list/clothes-detail/1" + recs.id}
+                      href={"/clothes-list/clothes-detail/" + recs.id}
                       key={recs.id}
                       shadow="sm"
                       padding="lg"
@@ -207,7 +211,9 @@ const RecsList = ({ recommend }: { recommend: clotherList[] }) => {
                           {recs.stock ? "在庫あり" : "在庫なし"}
                         </Badge>
                       </Group>
-                      <Text size="12px">{recs.des}</Text>
+                      <Text ta="end" size="12px">
+                        価格：￥{recs.price}
+                      </Text>
                     </Card>
                   );
                 })}
@@ -234,7 +240,7 @@ const RecsList = ({ recommend }: { recommend: clotherList[] }) => {
                 return (
                   <Card
                     component={Link}
-                    href={"/clothes-list/clothes-detail/1" + recs.id}
+                    href={"/clothes-list/clothes-detail/" + recs.id}
                     key={recs.id}
                     shadow="sm"
                     padding="lg"
@@ -251,7 +257,9 @@ const RecsList = ({ recommend }: { recommend: clotherList[] }) => {
                         {recs.stock ? "在庫あり" : "在庫なし"}
                       </Badge>
                     </Group>
-                    <Text size="12px">{recs.des}</Text>
+                    <Text size="12px" ta="end">
+                      価格：￥{recs.price}
+                    </Text>
                   </Card>
                 );
               })}
