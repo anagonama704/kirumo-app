@@ -7,14 +7,11 @@ import {
   Flex,
   Group,
   Image,
-  Space,
-  Title,
   Text,
   Badge,
 } from "@mantine/core";
 import { clotherList } from "../../api/@types";
 import Link from "next/link";
-import Recommend from "./Recommend";
 
 type ListType = {
   clotheList: clotherList[];
@@ -37,6 +34,8 @@ const List = ({ clotheList }: ListType) => {
         {clotheList.map((clothes) => (
           <Card
             key={clothes.id}
+            component={Link}
+            href={"/clothes-list/clothes-detail/" + clothes.id}
             shadow="sm"
             padding="lg"
             radius="md"
@@ -56,7 +55,9 @@ const List = ({ clotheList }: ListType) => {
                 {clothes.stock ? "在庫あり" : "在庫なし"}
               </Badge>
             </Group>
-            <Text size="12px">{clothes.des}</Text>
+            <Text ta="end" size="12px">
+              価格：￥{clothes.price}
+            </Text>
           </Card>
         ))}
       </Box>

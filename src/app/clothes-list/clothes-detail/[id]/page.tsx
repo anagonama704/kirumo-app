@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import {
   Container,
   Text,
@@ -14,20 +14,46 @@ import {
   List,
   ActionIcon,
   LoadingOverlay,
+  Anchor,
+  Notification,
 } from "@mantine/core";
 import { CaretLeft, CaretRight, ShoppingCart } from "@phosphor-icons/react";
 import { Carousel } from "@mantine/carousel";
 import "@mantine/carousel/styles.css";
 import { EmblaCarouselType } from "embla-carousel-react";
+import { useRecoilValue, useSetRecoilState } from "recoil";
+import { cartSelector, cartState } from "@/lib/atoms/atom";
+import { clotheList } from "@/mock/mockdata";
+import { useRouter } from "next/navigation";
+import { X } from "@phosphor-icons/react/dist/ssr";
+import { notifications } from "@mantine/notifications";
 import Link from "next/link";
 
-const ClothesDetail = () => {
+const ClothesDetail = ({ params }: { params: { id: string } }) => {
   const [segV, setSegV] = useState("black");
+  const [segSize, setSegSize] = useState("M");
+  const [segNum, setSegNum] = useState(1);
   const [nowSlide, setNowSlide] = useState(0);
   const [fembla, setFemble] = useState<EmblaCarouselType>();
   const [eembla, setEemble] = useState<EmblaCarouselType>();
   const [recs, setRecs] = useState(true);
-
+  const carsData = useSetRecoilState(cartState);
+  const data = useRecoilValue(cartState);
+  const router = useRouter();
+  const cart = clotheList.filter((clothe) => {
+    if (clothe.id == Number(params.id)) {
+      return clothe;
+    }
+  });
+  const option = {
+    color: segV,
+    size: segSize,
+    number: segNum,
+  };
+  const carts = {
+    ...option,
+    ...(cart ? cart[0] : clotheList[0]),
+  };
   const detail = {
     margin: "0 0 5px 0",
     color: "#000",
@@ -97,7 +123,6 @@ const ClothesDetail = () => {
   const slideCenters = (e: number) => {
     fembla?.scrollTo(e);
     eembla?.scrollTo(e);
-    console.log(e);
   };
   useEffect(() => {
     slideCenters(nowSlide);
@@ -109,6 +134,39 @@ const ClothesDetail = () => {
     }, 1000);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  const CartInsert = () => {
+    if (data.length < 4) {
+      carsData((prevCart) => [
+        ...prevCart,
+        { key: "someKey", default: [carts] },
+      ]);
+      router.push("/clothes-list");
+    } else {
+      // alert("いっぱい");
+      notifications.show({
+        icon: <X color="white" size={12} />,
+        title: "カートがいっぱいです",
+        message: (
+          <Button
+            leftSection={<ShoppingCart size={25} />}
+            onClick={() => {
+              notifications.clean();
+              router.push("/clothes-list");
+            }}
+            variant="transparent"
+          >
+            カートへ行く
+          </Button>
+        ),
+        color: "red",
+        pos: "absolute",
+        bottom: 100,
+        right: 50,
+      });
+    }
+  };
+  useEffect(() => {}, [data]);
 
   return (
     <Container fluid>
@@ -124,6 +182,9 @@ const ClothesDetail = () => {
             h={35}
             component={Link}
             href="/clothes-list"
+            onClick={() => {
+              notifications.clean();
+            }}
             variant="white"
             radius="50px"
             bg=""
@@ -252,6 +313,7 @@ const ClothesDetail = () => {
                 p={10}
                 fz={"16px"}
                 leftSection={<ShoppingCart size={25} />}
+                onClick={CartInsert}
               >
                 試着リストに入れる
               </Button>
