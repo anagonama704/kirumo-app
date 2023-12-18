@@ -10,4 +10,17 @@ export type clotherList = {
   src: string;
   stock: boolean;
   sort: string;
+  price: number;
+};
+export type cartList = {
+  id: number;
+  name: string;
+  des: string;
+  src: string;
+  stock: boolean;
+  sort: string;
+  price: number;
+  size: string;
+  color: string;
+  number: number;
 };
